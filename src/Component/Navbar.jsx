@@ -5,7 +5,7 @@ const NavItems = ['Home', "FAQ", 'Change log', 'Blog', 'Download', 'Contact']
 function NavbarArea() {
   return (
     <>
-    <div className="bg-[#ffff] p-5 shadow sticky top-0 w-full">
+    <div className="bg-[#ffff] p-5 shadow sticky top-0 max-w-full">
          <div className="max-w-[1300px] mx-auto flex justify-between items-center">
         <div>
             <a href="#" className="font-bold md:text-2xl text-lg text-black">CS — Ticket System</a>
