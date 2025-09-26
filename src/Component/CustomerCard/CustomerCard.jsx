@@ -11,7 +11,19 @@ function CustomerCard({customreItms}) {
                 <span className='text-lg font-medium'>{customreItms.status}</span>
               </div>
          </div>
-         <p>{customreItms.description}</p>
+         <p className='text-gray-500 leading-tight py-2'>{customreItms.description}</p>
+         <div className='flex justify-between items-center pt-5'>
+            <div className='flex space-x-2'>
+                <p className='text-gray-500 text-lg'>{customreItms.ticketNumber}</p>
+                <span className={` font-bold text-xl ${customreItms.priority === 'High' ? 'text-red-500': 'text-yellow-400'}`}>{customreItms.priority}</span>
+            </div>
+
+             <div className='flex space-x-2'>
+                <p className='text-gray-500 text-lg'>{customreItms.customer}</p>
+                <p className='flex space-x-2'> <img src="/time.png" alt="" /> <span className='text-gray-500 text-lg'>{customreItms.createdAt}</span></p>
+            </div>
+
+         </div>
      </div>
    </>
   )

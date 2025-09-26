@@ -19,8 +19,11 @@ function CustomerTicktes({ customerPromise }) {
             </div>
           </div>
           {/* ritght side */}
-           <div className="col-span-3 bg-white rounded-2xl">
-
+           <div className="col-span-3">
+                 <div className="bg-white shadow rounded p-3">
+                    <h1 className="text-xl font-bold text-black mb-2 w-[300px]">Payment Failed - Card Declined</h1>
+                    <button className="btn btn-success w-full text-white p-3 text-xl">Complete</button>
+                 </div>
            </div>
         </div>
       </div>
