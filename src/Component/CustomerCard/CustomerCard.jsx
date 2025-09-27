@@ -1,17 +1,25 @@
-import React from 'react'
+import React, { use, useState } from 'react'
 import { toast } from "react-toastify";
 
-function CustomerCard({customreItms , handelCount}) {
+function CustomerCard({customreItms , handelCount, setPurchesItems , purchesItems ,  RemoveCardData}) {
+
    const HandelCard = () => {
         toast('in-Progress')
-        handelCount();
+        handelCount();  
+        setPurchesItems([...purchesItems , customreItms])
+    } 
+
+    const HandelCardItems = () => {
+      HandelCard()
+      RemoveCardData(customreItms)
     }
 
-  
 
   return (
+    
+
    <>
-     <div className='text-black p-10 bg-white shadow rounded-xl cursor-pointer' onClick={HandelCard}>
+     <div className='text-black p-10 bg-white shadow rounded-xl cursor-pointer' onClick={() => HandelCardItems()}>
          <div className='flex justify-between items-center'>
             <h2 className='font-medium text-xl'>{customreItms.title}</h2>
               <div className={` px-3 py-2 rounded-3xl ${customreItms.status === 'Open' ? 'bg-green-300' :'bg-yellow-200'}`}>
@@ -36,4 +44,4 @@ function CustomerCard({customreItms , handelCount}) {
   )
 }
 
-export default CustomerCard
+export default CustomerCard;

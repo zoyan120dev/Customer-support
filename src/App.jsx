@@ -3,7 +3,7 @@ import HeroArea from "./Component/HeroArea"
 import NavbarArea from "./Component/Navbar"
 import CustomerTicktes from "./Component/CustomerTicktes"
 import Footer from "./FooterSection/Footer"
-  import { ToastContainer } from 'react-toastify';
+  import { toast, ToastContainer } from 'react-toastify';
 
 const fetchCustomer= async() => {
     const res = await fetch('/customer.json')
@@ -11,25 +11,40 @@ const fetchCustomer= async() => {
 }
 
  const customerPromise = fetchCustomer()
-
+  
 
 function App() {
 
    
   const [count , setCount] = useState(0);
+  const [purchesItems , setPurchesItems] = useState([]);
+    const [resolveCount , setResolbveCount] = useState(0)
+  
 
   const handelCount = () => {
     let countAdd  = count + 1;
     setCount(countAdd)
   }
 
+  const RemoveButtonData = (Data) => {
+     const FilterData = purchesItems.filter(itemsData =>  itemsData.id !== Data.id)
+     setPurchesItems(FilterData)
+  }
+
+
+  const RemoveCardData = (CardData) => {
+      const FilterData = purchesItems.filter(cartItems =>  cartItems.id !== CardData.id)
+      setPurchesItems(FilterData)
+  }
+
+ 
 
   return (
     <>
        <NavbarArea/>
-       <HeroArea  count={count}/>
+       <HeroArea  count={count} resolveCount={resolveCount}/>
       <Suspense fallback={<span className="loading loading-bars loading-xl text-black"></span>}>
-            <CustomerTicktes  handelCount={handelCount} customerPromise={customerPromise}/>
+            <CustomerTicktes  RemoveCardData={RemoveCardData}  RemoveButtonData={RemoveButtonData}  resolveCount={resolveCount} setResolbveCount={setResolbveCount} setCount={setCount} count={count}  purchesItems={purchesItems}  setPurchesItems={setPurchesItems}  handelCount={handelCount} customerPromise={customerPromise}/>
       </Suspense>
       <Footer/>
        <ToastContainer />

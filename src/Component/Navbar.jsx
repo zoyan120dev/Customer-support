@@ -14,7 +14,7 @@ function NavbarArea() {
             <ul className="flex space-x-5 items-center hidden md:flex">
                 {
                     NavItems.map(items => (
-                        <li className="text-black text-lg font-medium transition-all hover:text-blue-500"><a href="#">{items}</a></li>
+                        <li key={items.id} className="text-black text-lg font-medium transition-all hover:text-blue-500"><a href="#">{items}</a></li>
                     ))
                 }
             </ul>

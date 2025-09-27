@@ -1,6 +1,6 @@
 import React from "react";
 
-function HeroArea({count}) {
+function HeroArea({count, resolveCount}) {
 
   return (
     <>
@@ -34,7 +34,7 @@ function HeroArea({count}) {
               <h1 className="text-4xl font-medium w-[200px] text-center">
                Resolved
               </h1>
-              <span className="text-5xl font-bold py-3">0</span>
+              <span className="text-5xl font-bold py-3">{resolveCount}</span>
             </div>
             <img
               src="./vector.png"
