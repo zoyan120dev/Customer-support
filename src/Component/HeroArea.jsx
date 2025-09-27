@@ -1,6 +1,7 @@
 import React from "react";
 
-function HeroArea() {
+function HeroArea({count}) {
+
   return (
     <>
       <div className="max-w-[1300px] mx-auto py-10">
@@ -15,7 +16,7 @@ function HeroArea() {
               <h1 className="text-4xl font-medium w-[200px] text-center">
                 In-Progress
               </h1>
-              <span className="text-5xl font-bold py-3">0</span>
+              <span className="text-5xl font-bold py-3">{count}</span>
             </div>
             <img
               src="./vector.png"

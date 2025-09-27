@@ -1,10 +1,17 @@
 import React from 'react'
+import { toast } from "react-toastify";
 
-function CustomerCard({customreItms}) {
-  console.log(customreItms.description)
+function CustomerCard({customreItms , handelCount}) {
+   const HandelCard = () => {
+        toast('in-Progress')
+        handelCount();
+    }
+
+  
+
   return (
    <>
-     <div className='text-black p-10 bg-white shadow rounded-xl cursor-pointer'>
+     <div className='text-black p-10 bg-white shadow rounded-xl cursor-pointer' onClick={HandelCard}>
          <div className='flex justify-between items-center'>
             <h2 className='font-medium text-xl'>{customreItms.title}</h2>
               <div className={` px-3 py-2 rounded-3xl ${customreItms.status === 'Open' ? 'bg-green-300' :'bg-yellow-200'}`}>

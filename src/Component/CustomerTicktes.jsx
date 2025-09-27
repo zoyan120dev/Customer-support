@@ -1,8 +1,11 @@
 import React, { use } from "react";
 import CustomerCard from "./CustomerCard/CustomerCard";
 
-function CustomerTicktes({ customerPromise }) {
+function CustomerTicktes({ customerPromise , handelCount }) {
   const customers = use(customerPromise);
+  
+
+
   return (
     <>
       <div className="max-w-[1300px] mx-auto">
@@ -10,11 +13,11 @@ function CustomerTicktes({ customerPromise }) {
           <h1 className="text-2xl text-black font-bold">Customer Tickets</h1>
           <h1 className="text-2xl text-black font-bold">Task Status</h1>
         </div>
-        <div className="grid grid-cols-12 py-4 gap-5">
+        <div className="grid grid-cols-1   md:grid-cols-3 lg:grid-cols-12 py-4 gap-5">
           <div className="col-span-9">
-            <div className="grid grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {customers.map((customreItms) => (
-               <CustomerCard customreItms={customreItms} />
+               <CustomerCard handelCount={handelCount} customreItms={customreItms} />
               ))}
             </div>
           </div>
