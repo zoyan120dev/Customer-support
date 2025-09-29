@@ -5,16 +5,8 @@ import Resolve from "./Resolve/Resolve";
 import SetTaskStatus from "./SetTaskStatus";
 
 function CustomerTicktes({
-  customerPromise,
-  handelCount,
-  purchesItems,
-  setPurchesItems,
-  count,
-  setCount,
-  resolveCount,
-  setResolbveCount,
-  RemoveButtonData,
-  setPurchesButton,
+  customerPromise, handelCount,purchesItems,setPurchesItems,count,setCount,resolveCount,
+  setResolbveCount,  RemoveButtonData,setPurchesButton,
   puchesButton,
 }) {
   const customers = use(customerPromise);
