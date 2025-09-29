@@ -15,6 +15,7 @@ const customerPromise = fetchCustomer();
 function App() {
   const [count, setCount] = useState(0);
   const [purchesItems, setPurchesItems] = useState([]);
+  const [puchesButton , setPurchesButton] = useState([]);
   const [resolveCount, setResolbveCount] = useState(0);
 
   const handelCount = () => {
@@ -40,13 +41,7 @@ function App() {
           <span className="loading loading-bars loading-xl text-black"></span>
         }
       >
-        <CustomerTicktes
-          RemoveButtonData={RemoveButtonData}
-          resolveCount={resolveCount}
-          setResolbveCount={setResolbveCount}
-          setCount={setCount}
-          count={count}
-          purchesItems={purchesItems}
+        <CustomerTicktes setPurchesButton={setPurchesButton} puchesButton={puchesButton} RemoveButtonData={RemoveButtonData}  resolveCount={resolveCount}  setResolbveCount={setResolbveCount}   setCount={setCount}   count={count} purchesItems={purchesItems}
           setPurchesItems={setPurchesItems}
           handelCount={handelCount}
           customerPromise={customerPromise}

@@ -1,8 +1,8 @@
-import React, { use, useState } from "react";
-import CustomerCard from "./CustomerCard/CustomerCard";
-import SetTaskStatus from "./SetTaskStatus";
+import { use, useState } from "react";
 import { toast } from "react-toastify";
+import CustomerCard from "./CustomerCard/CustomerCard";
 import Resolve from "./Resolve/Resolve";
+import SetTaskStatus from "./SetTaskStatus";
 
 function CustomerTicktes({
   customerPromise,
@@ -14,6 +14,8 @@ function CustomerTicktes({
   resolveCount,
   setResolbveCount,
   RemoveButtonData,
+  setPurchesButton,
+  puchesButton,
 }) {
   const customers = use(customerPromise);
   const [customersData, setCustomersData] = useState(customers);
@@ -54,12 +56,14 @@ function CustomerTicktes({
           </div>
           <div className="col-span-3">
             <SetTaskStatus
+              puchesButton={puchesButton}
+              setPurchesButton={setPurchesButton}
               RemoveButtonData={RemoveButtonData}
               handelclikedButton={handelclikedButton}
               ClikedButton={ClikedButton}
               purchesItems={purchesItems}
             />
-            <Resolve ClikedButton={ClikedButton} items={purchesItems} />
+            <Resolve ClikedButton={ClikedButton} puchesButton={puchesButton} />
           </div>
         </div>
       </div>

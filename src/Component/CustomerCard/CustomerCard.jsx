@@ -10,14 +10,13 @@ function CustomerCard({
   customersData,
 }) {
   const RemoveCustomer = (item) => {
-    const updated = customersData.filter((c) => c.id !== item.id);
+    const updated = customersData.filter((items) => items.id !== item.id);
     setCustomersData(updated);
   };
 
   const HandelCard = () => {
     toast("in-Progress");
     handelCount();
-    // push extra property for remove support
     setPurchesItems([
       ...purchesItems,
       { ...customreItms, RemoveCustomer: RemoveCustomer },
