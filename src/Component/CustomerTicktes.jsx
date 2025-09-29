@@ -4,7 +4,7 @@ import SetTaskStatus from "./SetTaskStatus";
 import { toast } from "react-toastify";
 import Resolve from "./Resolve/Resolve";
 
-function CustomerTicktes({ customerPromise , handelCount , purchesItems , setPurchesItems , count  ,  setCount , resolveCount , setResolbveCount ,  RemoveButtonData , RemoveCardData }) {
+function CustomerTicktes({ customerPromise , handelCount , purchesItems , setPurchesItems , count  ,  setCount , resolveCount , setResolbveCount ,  RemoveButtonData ,}) {
   const customers = use(customerPromise);
   const [ClikedButton , setClikedButton] = useState(false);
 
@@ -14,10 +14,10 @@ function CustomerTicktes({ customerPromise , handelCount , purchesItems , setPur
         return;
      }
     toast('Completed')
-    setCount(count - 1)
-    
+    setCount(count - 1)   
     const CountUp = resolveCount + 1;
     setResolbveCount(CountUp)
+    
   }
 
 
@@ -33,7 +33,7 @@ function CustomerTicktes({ customerPromise , handelCount , purchesItems , setPur
           <div className="col-span-9">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {customers.map((customreItms) => (
-               <CustomerCard RemoveCardData={RemoveCardData}  resolveCount={resolveCount} purchesItems={purchesItems} setPurchesItems={setPurchesItems} handelCount={handelCount} customreItms={customreItms} />
+               <CustomerCard   resolveCount={resolveCount} purchesItems={purchesItems} setPurchesItems={setPurchesItems} handelCount={handelCount} customreItms={customreItms} />
               ))}
             </div>
           </div>

@@ -7,6 +7,8 @@ function TaskStatus({UpdateItems ,  RemoveButtonData ,  handelclikedButton}) {
         handelclikedButton()
         RemoveButtonData(UpdateItems)
     }
+
+  
    
   return (
     <div className='bg-white shadow  p-4 rounded-2xl '>

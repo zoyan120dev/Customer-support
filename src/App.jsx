@@ -1,55 +1,65 @@
-import { Suspense, useState } from "react"
-import HeroArea from "./Component/HeroArea"
-import NavbarArea from "./Component/Navbar"
-import CustomerTicktes from "./Component/CustomerTicktes"
-import Footer from "./FooterSection/Footer"
-  import { toast, ToastContainer } from 'react-toastify';
+import { Suspense, useState } from "react";
+import HeroArea from "./Component/HeroArea";
+import NavbarArea from "./Component/Navbar";
+import CustomerTicktes from "./Component/CustomerTicktes";
+import Footer from "./FooterSection/Footer";
+import { toast, ToastContainer } from "react-toastify";
 
-const fetchCustomer= async() => {
-    const res = await fetch('/customer.json')
-    return  res.json()
-}
+const fetchCustomer = async () => {
+  const res = await fetch("/customer.json");
+  return res.json();
+};
 
- const customerPromise = fetchCustomer()
-  
+const customerPromise = fetchCustomer();
 
 function App() {
-
-   
-  const [count , setCount] = useState(0);
-  const [purchesItems , setPurchesItems] = useState([]);
-    const [resolveCount , setResolbveCount] = useState(0)
-  
+  const [count, setCount] = useState(0);
+  const [purchesItems, setPurchesItems] = useState([]);
+  const [resolveCount, setResolbveCount] = useState(0);
 
   const handelCount = () => {
-    let countAdd  = count + 1;
-    setCount(countAdd)
-  }
+    let countAdd = count + 1;
+    setCount(countAdd);
+  };
 
   const RemoveButtonData = (Data) => {
-     const FilterData = purchesItems.filter(itemsData =>  itemsData.id !== Data.id)
+    const Filterter = purchesItems.filter((dataItems) => dataItems.id !== Data.id)
+    setPurchesItems(Filterter)
+  };
+ 
+
+  const RemoveCardData = (Data) => {
+     const FilterData = purchesItems.filter((dataItems) => dataItems.id !== Data.id)
      setPurchesItems(FilterData)
   }
-
-
-  const RemoveCardData = (CardData) => {
-      const FilterData = purchesItems.filter(cartItems =>  cartItems.id !== CardData.id)
-      setPurchesItems(FilterData)
-  }
-
  
+
 
   return (
     <>
-       <NavbarArea/>
-       <HeroArea  count={count} resolveCount={resolveCount}/>
-      <Suspense fallback={<span className="loading loading-bars loading-xl text-black"></span>}>
-            <CustomerTicktes  RemoveCardData={RemoveCardData}  RemoveButtonData={RemoveButtonData}  resolveCount={resolveCount} setResolbveCount={setResolbveCount} setCount={setCount} count={count}  purchesItems={purchesItems}  setPurchesItems={setPurchesItems}  handelCount={handelCount} customerPromise={customerPromise}/>
+      <NavbarArea />
+      <HeroArea count={count} resolveCount={resolveCount} />
+      <Suspense
+        fallback={
+          <span className="loading loading-bars loading-xl text-black"></span>
+        }
+      >
+        <CustomerTicktes
+          RemoveButtonData={RemoveButtonData}
+          resolveCount={resolveCount}
+          setResolbveCount={setResolbveCount}
+          setCount={setCount}
+          count={count}
+          purchesItems={purchesItems}
+          setPurchesItems={setPurchesItems}
+          handelCount={handelCount}
+          customerPromise={customerPromise}
+        />
       </Suspense>
-      <Footer/>
-       <ToastContainer />
+      <Footer />
+      <ToastContainer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
