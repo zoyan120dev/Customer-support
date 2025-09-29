@@ -28,10 +28,6 @@ function App() {
   };
  
 
-  const RemoveCardData = (Data) => {
-     const FilterData = purchesItems.filter((dataItems) => dataItems.id !== Data.id)
-     setPurchesItems(FilterData)
-  }
  
 
 

@@ -1,6 +1,6 @@
 import React from "react";
 
-function HeroArea({count, resolveCount}) {
+function HeroArea({ count, resolveCount }) {
 
   return (
     <>
@@ -32,7 +32,7 @@ function HeroArea({count, resolveCount}) {
             />
             <div className="flex flex-col items-center justify-center w-[300px] mx-auto">
               <h1 className="text-4xl font-medium w-[200px] text-center">
-               Resolved
+                Resolved
               </h1>
               <span className="text-5xl font-bold py-3">{resolveCount}</span>
             </div>
